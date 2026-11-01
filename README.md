@@ -17,6 +17,8 @@ Nombre de la experiencia en la interfaz actual: *Ajolotitlán*.
 | Selección de personaje | Listo |
 | Mapa interactivo de 32 entidades (zoom, arrastre, teclado, táctil) | Listo |
 | Historia de Puebla (1 dato oficial con fuente) | Listo |
+| **8 lecciones** con Lia y Rocko (explicación, casos cotidianos, cuestionario con retroalimentación, misión) | Listo |
+| Diseño responsive (320 px a escritorio) | Listo |
 | Historias de las otras 31 entidades | Pendiente |
 | Datos de la Plataforma CCPC 2009–2024 (por elección y región) | Pendiente |
 | Comparaciones temporales y territoriales | Pendiente |
@@ -30,7 +32,7 @@ Requiere Node.js 18 o superior (recomendado 22 LTS).
 ```sh
 npm install
 npm run dev      # servidor de desarrollo
-npm test         # 8 pruebas automáticas (node:test)
+npm test         # 15 pruebas automáticas (node:test)
 npm run build    # versión estática en dist/
 npm run preview  # vista previa de producción
 ```
@@ -39,6 +41,7 @@ npm run preview  # vista previa de producción
 
 ```
 src/            Interfaz React (mapa, cámara, personajes, historias)
+src/lessons/    Lecciones: contenido, lógica de puntaje/progreso, pantallas y estilos
 src/data/       Catálogo de entidades (claves INEGI) y contenido narrativo
 public/         Geometría estatal local y metadatos de procedencia
 scripts/        Pruebas automáticas

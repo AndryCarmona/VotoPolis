@@ -6,8 +6,11 @@ import FloatingCharacter from './FloatingCharacter';
 import StateInfoCard from './StateInfoCard';
 import PueblaIntroduction from './PueblaIntroduction';
 import { states } from './data/states';
+import LessonsHome from './lessons/LessonsHome';
+import LessonPlayer from './lessons/LessonPlayer';
 import './styles.css';
 import './map-adventure.css';
+import './lessons/lessons.css';
 
 function Selection({ onConfirm, initialName }) {
   const [selected, setSelected] = useState(initialName || 'Lia');
@@ -33,8 +36,10 @@ function App() {
     // Orienta a lectores de pantalla al cambiar de escena, sin forzar el foco en cada selección.
     document.querySelector('[data-screen-heading]')?.focus();
   }, [screen]);
+  const [lessonId, setLessonId] = useState(1);
+  const inLessons = screen === 'learn' || screen === 'lesson';
   const backToMap = () => setScreen('map');
-  return <div className="app"><header><a href="./" className="brand" aria-label="Ajolotitlán, inicio" onClick={e => { e.preventDefault(); setScreen('selection'); }}><span className="brand-icon">✳</span> ajolotitlán<span className="brand-dot">.</span></a><div className="header-right"><span>Descubre. Explora. Participa.</span><b className="ine">INE</b></div></header>{screen === 'selection' ? <Selection initialName={name} onConfirm={choice => { setName(choice); setScreen('map'); }}/> : screen === 'map' ? <Exploration name={name} onBack={() => setScreen('selection')} selectedCode={selectedCode} onSelect={setSelectedCode} onStart={() => { if (selectedCode === '21') setScreen('puebla'); }}/> : <PueblaIntroduction name={name} transition={screen === 'transition'} onContinue={() => setScreen('transition')} onBack={backToMap}/>}<footer><span>Un pequeño viaje hacia una gran ciudadanía.</span><span>HECHO DE CURIOSIDAD Y DIVERSIDAD <span className="footer-flower">✳</span></span></footer></div>;
+  return <div className="app"><header><a href="./" className="brand" aria-label="Ajolotitlán, inicio" onClick={e => { e.preventDefault(); setScreen('selection'); }}><span className="brand-icon">✳</span> ajolotitlán<span className="brand-dot">.</span></a><div className="header-right"><span>Descubre. Explora. Participa.</span><b className="ine">INE</b></div></header>{name && screen !== 'selection' && <nav className="subnav" aria-label="Secciones"><button className={inLessons ? 'active' : ''} aria-current={inLessons ? 'page' : undefined} onClick={() => setScreen('learn')}><span aria-hidden="true">📚</span> Lecciones</button><button className={!inLessons ? 'active' : ''} aria-current={!inLessons ? 'page' : undefined} onClick={() => setScreen('map')}><span aria-hidden="true">🗺️</span> Mapa</button></nav>}{screen === 'selection' ? <Selection initialName={name} onConfirm={choice => { setName(choice); setScreen('learn'); }}/> : screen === 'learn' ? <LessonsHome name={name} onOpen={id => { setLessonId(id); setScreen('lesson'); }} onMap={() => setScreen('map')}/> : screen === 'lesson' ? <LessonPlayer lessonId={lessonId} guide={name} onExit={() => setScreen('learn')} onOpen={setLessonId}/> : screen === 'map' ? <Exploration name={name} onBack={() => setScreen('selection')} selectedCode={selectedCode} onSelect={setSelectedCode} onStart={() => { if (selectedCode === '21') setScreen('puebla'); }}/> : <PueblaIntroduction name={name} transition={screen === 'transition'} onContinue={() => setScreen('transition')} onBack={backToMap}/>}<footer><span>Un pequeño viaje hacia una gran ciudadanía.</span><span>HECHO DE CURIOSIDAD Y DIVERSIDAD <span className="footer-flower">✳</span></span></footer></div>;
 }
 createRoot(document.getElementById('root')).render(<React.StrictMode><App/></React.StrictMode>);
 
