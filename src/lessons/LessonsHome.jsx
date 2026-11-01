@@ -2,12 +2,13 @@ import React, { useMemo } from 'react';
 import Character from '../Character';
 import { lessons, sources } from './lessonsData';
 import { readProgress, safeStorage } from './lessonUtils';
+import LearningTree, { STAGES, treeStage } from './LearningTree';
 
 function Stars({ value, total = 3 }) {
   return <span className="stars" role="img" aria-label={`${value} de ${total} estrellas`}>{Array.from({ length: total }, (_, i) => <span key={i} className={i < value ? 'on' : ''} aria-hidden="true">★</span>)}</span>;
 }
 
-export default function LessonsHome({ name, onOpen, onMap }) {
+export default function LessonsHome({ name, onOpen, onMap, onDuel }) {
   const progress = useMemo(() => readProgress(safeStorage()), []);
   const done = lessons.filter(l => (progress[l.id] ?? 0) > 0).length;
   const allDone = done === lessons.length;
@@ -30,6 +31,22 @@ export default function LessonsHome({ name, onOpen, onMap }) {
       <div className="hero-art" aria-hidden="true"><div className="bubble big"><Character name={name}/></div></div>
     </section>
     {allDone && <p className="celebrate" role="status">🎉 ¡Completaste las 8 lecciones! Ya eres embajadora o embajador de la participación. Cuéntale a alguien lo que aprendiste.</p>}
+    <div className="grow-row">
+      <section className="tree-card" aria-labelledby="tree-h">
+        <LearningTree count={done}/>
+        <div>
+          <h2 id="tree-h">Tu árbol de aprendizaje</h2>
+          <p className="tree-stage"><b>{STAGES[treeStage(done)]}</b> · {done} de {lessons.length} lecciones</p>
+          <p>{allDone ? '¡Tu árbol llegó a lo más alto! Gracias por aprender y participar.' : `Completa ${lessons.length - done} ${lessons.length - done === 1 ? 'lección más' : 'lecciones más'} y mira cómo crece, de una semillita a un árbol grandote.`}</p>
+        </div>
+      </section>
+      <section className="duel-promo" aria-labelledby="duel-promo-h">
+        <span className="duel-emoji" aria-hidden="true">⚔️🗳️</span>
+        <h2 id="duel-promo-h">Duelo Democrático</h2>
+        <p>Crea una sala, comparte el código y juega con alguien más. ¡Quien acierte más será la persona más democrática!</p>
+        <button className="primary" onClick={onDuel}>Jugar ahora <span aria-hidden="true">↗</span></button>
+      </section>
+    </div>
     <ol className="lesson-grid">
       {lessons.map(l => {
         const best = progress[l.id] ?? 0;
