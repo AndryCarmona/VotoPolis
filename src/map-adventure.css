@@ -1,0 +1,63 @@
+/* Referencias: mapa nocturno violeta e islas con relieve. Los contornos son geográficos. */
+.explore-heading h1 { color: #492064; }
+.explore-area { background: #311750; border: 2px solid #9d76bf; box-shadow: 0 8px 0 #ddd0e8, 0 20px 45px #43226413; height: clamp(440px, 65vh, 760px); }
+.map-wrap.adventure-map { inset: 0; border-radius: inherit; overflow: hidden; background: radial-gradient(ellipse at 50% 20%, #5d2f7c, #291347); }
+.adventure-map .mexico-map { overflow: hidden; touch-action: none; cursor: default; top: 20px; height: calc(100% - 85px); }
+.adventure-map .mexico-map:focus-visible { outline: 3px dashed #fbe6ff; outline-offset: -6px; border-radius: 20px; }
+.adventure-map .can-pan { cursor: grab; }
+.adventure-map.is-navigating .can-pan { cursor: grabbing; }
+.map-camera { transform-origin: 0 0; transition: transform 300ms cubic-bezier(.2,.75,.2,1); }
+.is-navigating .map-camera { transition: none; }
+.country-halo { fill: #43185a; stroke: #b063da; stroke-width: 7; stroke-linejoin: round; opacity: .45; transform: translateY(4px); }
+.state-surface { transform: translateY(0); transition: transform 300ms cubic-bezier(.2,.75,.2,1), filter 300ms, opacity 300ms; }
+.state-surface.is-muted { filter: grayscale(1) brightness(.82); }
+.state-surface.is-lifted { transform: translateY(var(--lift)); filter: url(#lift-shadow); }
+.region-name-layer { transform: translateY(0); transition: transform 300ms cubic-bezier(.2,.75,.2,1), filter 300ms; }
+.region-name-layer.is-muted { filter: grayscale(1); opacity: .75; }
+.region-name-layer.is-lifted { transform: translateY(var(--lift)); }
+.region-depth { fill: #38124f; stroke: #38124f; stroke-width: 2; stroke-linejoin: round; opacity: 0; transition: opacity 300ms; }
+.is-lifted .region-depth { opacity: 1; }
+.region-face { fill: #683486; stroke: #47215f; stroke-width: 1.5; stroke-linejoin: round; vector-effect: non-scaling-stroke; transition: fill 300ms, stroke 200ms, stroke-width 200ms; }
+.is-hovered .region-face { stroke: #fff0bb; stroke-width: 2; }
+.is-lifted .region-face { fill: url(#revealed-land); stroke: #efb6ff; stroke-width: 2.6; }
+.selected-footprint { fill: #180d29; stroke: #180d29; stroke-width: 2; opacity: .65; }
+.glowing-trail { fill: none; stroke: #fff4c3; stroke-width: 2; stroke-dasharray: .1 6; stroke-linecap: round; opacity: .9; }
+.region-illustrations { opacity: 0; transition: opacity 350ms ease; }
+.is-lifted .region-illustrations { opacity: 1; }
+.region-label { text-anchor: middle; fill: #fff5d4; font-family: 'Trebuchet MS', Arial, sans-serif; font-weight: 900; letter-spacing: .15px; paint-order: stroke fill; stroke: #331039; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.small-region-label { stroke-width: 1.7; }
+.adventure-map .state-target, .adventure-map .state-target:hover { fill: transparent; stroke: none; filter: none; pointer-events: fill; cursor: pointer; transition: none; }
+.adventure-map .state-target:focus-visible { fill: #fff2cb16; stroke: #fff6c9; stroke-width: 2.5; stroke-dasharray: 4 3; outline: none; }
+.adventure-map .sea-label { fill: #c4a4df; opacity: .6; font-size: 10px; }
+.explore-area .area-label { color: #e6cdef; z-index: 5; top: 18px; left: 20px; font-size: 9px; }
+.explore-area.active .area-label i { background: #f1c3fd; box-shadow: 0 0 0 4px #f1c3fd20; }
+.adventure-map .state-tooltip { top: 12px; right: 14px; background: #29123ed9; color: #ffeac7; border: 1px solid #9c70ba; font-size: 11px; max-width: 48%; z-index: 5; }
+.explore-area .map-caption { color: #c6a0db; bottom: 67px; font-size: 7px; left: 20px; }
+.explore-area .bubble-name { color: #fff1d8; text-shadow: 0 1px 4px #220b38; }
+.explore-area .bubble { background: radial-gradient(circle at 28% 20%, #ffffffbf, transparent 37%), linear-gradient(135deg,#fbd0ed65,#c9fff04d 50%,#ced0ff8c); }
+.map-controls { position: absolute; bottom: 13px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 4px; background: #26113eea; border: 1px solid #a77bc4; border-radius: 14px; padding: 6px; box-shadow: 0 4px 18px #170c3380; z-index: 6; color: #ffefd3; white-space: nowrap; }
+.map-controls button { display: grid; place-items: center; border: 1px solid transparent; min-width: 36px; height: 36px; border-radius: 9px; background: #714192; color: #fff3d8; font-weight: bold; font-size: 20px; }
+.map-controls button:hover:enabled { background: #9555b6; }
+.map-controls button:disabled { opacity: .4; cursor: default; }
+.map-controls button:focus-visible { outline: 3px solid #fff3b4; outline-offset: 2px; }
+.map-controls output { font-size: 10px; min-width: 42px; text-align: center; font-variant-numeric: tabular-nums; }
+.map-controls .map-control-text { font-size: 10px; background: transparent; padding-inline: 9px; }
+.control-divider { width: 1px; height: 23px; background: #a77bc466; margin: 0 3px; }
+.map-navigation-help { position: absolute; right: 15px; bottom: 67px; color: #d9bfe9; font-size: 9px; pointer-events: none; }
+.adventure-map .map-status { color: #fff0d6; background: #2c164c; }
+.state-info { background: #f2e5f8; border-color: #d7b8e2; box-shadow: 0 4px 0 #e6d8ed; }
+.state-info h2 { color: #572569; }
+.state-info .primary { background: #71358b; box-shadow: 0 4px 0 #49215d; }
+@media(max-width:700px) {
+  .explore-area { height: 60svh; min-height: 420px; }
+  .map-controls { bottom: 12px; gap: 2px; padding: 5px; max-width: calc(100% - 14px); }
+  .map-controls button { min-width: 32px; height: 40px; }
+  .map-controls .map-control-text { font-size: 9px; padding-inline: 5px; min-width: 0; white-space: normal; max-width: 76px; }
+  .map-controls output { min-width: 35px; font-size: 9px; }
+  .control-divider { margin: 0 1px; }
+  .explore-area .area-label { font-size: 8px; top: 17px; left: 12px; }
+  .adventure-map .state-tooltip { top: 43px; right: 12px; max-width: 80%; font-size: 10px; }
+  .explore-area .map-caption { display: none; }
+  .map-navigation-help { bottom: 75px; right: 12px; left: 12px; text-align: center; font-size: 8px; }
+}
+@media(prefers-reduced-motion:reduce) { .map-camera, .state-surface, .region-face, .region-name-layer { transition: none; } }
