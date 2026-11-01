@@ -1,4 +1,4 @@
-# Ajolotitlán · Mapa interactivo con relieve y zoom
+# VotoPolis · Mapa interactivo con relieve y zoom
 
 Frontend React + JavaScript con Vite. Conserva la selección de Lia/Rocko y el movimiento de la burbuja; añade las 32 entidades interactivas y la introducción de Puebla. No incorpora backend, API de servicios, autenticación, base de datos ni despliegue.
 

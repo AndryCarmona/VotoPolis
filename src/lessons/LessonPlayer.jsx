@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Icon from '../Icon';
 import Character from '../Character';
 import { Visual } from './Visuals';
 import { lessons } from './lessonsData';
@@ -53,12 +54,12 @@ export default function LessonPlayer({ lessonId, guide, onExit, onOpen }) {
     {!finished && <Stepper step={step}/>}
 
     {step === 0 && !finished && <section aria-labelledby="lesson-h">
-      <h1 id="lesson-h" ref={headingRef} tabIndex="-1" className="lesson-h"><span aria-hidden="true">{lesson.emoji}</span> {lesson.title}</h1>
+      <h1 id="lesson-h" ref={headingRef} tabIndex="-1" className="lesson-h"><Icon name={lesson.icon} size={34} className="h-icon"/> {lesson.title}</h1>
       <div className="chat">
         {lesson.explain.slice(0, shown).map((b, i) => <div key={i} ref={i === shown - 1 ? lastBubble : null}><Bubble who={b.who} name={who[b.who]} text={fillNames(b.text, guide, friend)} visual={b.visual}/></div>)}
       </div>
       {!allShown ? <button className="primary wide" onClick={() => setShown(s => s + 1)}>Seguir <span aria-hidden="true">▸</span></button> : <>
-        <p className="key-idea"><b>💡 Idea clave</b>{lesson.keyIdea}</p>
+        <p className="key-idea"><b><Icon name="bulb" size={16}/> Idea clave</b>{lesson.keyIdea}</p>
         <button className="primary wide" onClick={() => setStep(1)}>Ver casos de la vida real <span aria-hidden="true">↗</span></button>
       </>}
     </section>}
@@ -66,8 +67,8 @@ export default function LessonPlayer({ lessonId, guide, onExit, onOpen }) {
     {step === 1 && !finished && <section aria-labelledby="lesson-h">
       <h1 id="lesson-h" ref={headingRef} tabIndex="-1" className="lesson-h">En la vida real</h1>
       <p className="lead">{friend} y {guide} te muestran cómo se usa esta idea todos los días.</p>
-      <ul className="cases">{lesson.cases.map(c => <li key={c.title} className="case"><span className="case-icon" aria-hidden="true">{c.icon}</span><div><h2>{c.title}</h2><p>{c.text}</p></div></li>)}</ul>
-      <p className="key-idea"><b>💡 Recuerda</b>{lesson.keyIdea}</p>
+      <ul className="cases">{lesson.cases.map(c => <li key={c.title} className="case"><span className="case-icon"><Icon name={c.icon} size={30}/></span><div><h2>{c.title}</h2><p>{c.text}</p></div></li>)}</ul>
+      <p className="key-idea"><b><Icon name="bulb" size={16}/> Recuerda</b>{lesson.keyIdea}</p>
       <div className="row-actions">
         <button className="back" onClick={() => setStep(0)}>← Volver a la explicación</button>
         <button className="primary" onClick={() => setStep(2)}>¡A responder! <span aria-hidden="true">↗</span></button>
@@ -102,13 +103,13 @@ export default function LessonPlayer({ lessonId, guide, onExit, onOpen }) {
       </div>
       <ol className="feedback">
         {result.detail.map(d => <li key={d.index} className={d.isCorrect ? 'ok' : 'bad'}>
-          <h2><span aria-hidden="true">{d.isCorrect ? '✅' : '❌'}</span> <span className="sr-only">{d.isCorrect ? 'Correcta: ' : 'Por repasar: '}</span>{d.q}</h2>
+          <h2><Icon name={d.isCorrect ? 'check' : 'x'} size={20} className={d.isCorrect ? 'ic-ok' : 'ic-bad'}/> <span className="sr-only">{d.isCorrect ? 'Correcta: ' : 'Por repasar: '}</span>{d.q}</h2>
           {!d.isCorrect && <p><b>Tu respuesta:</b> {d.chosen === null ? 'Sin responder' : d.options[d.chosen]}</p>}
           <p><b>{d.isCorrect ? 'Respuesta:' : 'Respuesta correcta:'}</b> {d.options[d.correct]}</p>
           <p className="why"><b>¿Por qué?</b> {d.why}</p>
         </li>)}
       </ol>
-      <div className="mission" role="note"><b>🎯 Tu misión</b><p>{lesson.mission}</p></div>
+      <div className="mission" role="note"><b><Icon name="target" size={16}/> Tu misión</b><p>{lesson.mission}</p></div>
       <div className="row-actions wrap">
         {result.score < result.total && <button className="back" onClick={restartAll}>Repasar la lección</button>}
         {result.score < result.total && <button className="back" onClick={restartQuiz}>Intentar de nuevo</button>}

@@ -19,7 +19,7 @@ export const participationData = {
 
 export const lessons = [
   {
-    id: 1, emoji: '🏫', title: '¿Qué es la democracia?', tagline: 'Decidir juntos y en paz',
+    id: 1, icon: 'school', title: '¿Qué es la democracia?', tagline: 'Decidir juntos y en paz',
     explain: [
       { who: 'guide', text: '¡Hola! Soy {guide}. Hoy vamos a descubrir una palabra muy grande: ¡democracia!' },
       { who: 'friend', text: 'Yo soy {friend}. Democracia quiere decir que las decisiones se toman entre muchas personas, no solo una. Todas y todos podemos opinar.' },
@@ -28,9 +28,9 @@ export const lessons = [
     ],
     keyIdea: 'Democracia es decidir juntos, escuchando a todas las personas y respetando las reglas.',
     cases: [
-      { icon: '🎲', title: 'El juego del recreo', text: 'El grupo propone tres juegos. Cada quien levanta la mano por uno y gana el que tiene más manos. Todos aceptan el resultado.' },
-      { icon: '🍕', title: 'La comida de la fiesta', text: 'En casa preguntan a cada persona qué le gusta y eligen algo que guste a la mayoría. También piensan en quien no puede comer algo.' },
-      { icon: '🗳️', title: 'Jefa o jefe de grupo', text: 'Se proponen candidatas y candidatos, se vota en secreto y se cuentan los votos frente a todo el grupo.' },
+      { icon: 'dice', title: 'El juego del recreo', text: 'El grupo propone tres juegos. Cada quien levanta la mano por uno y gana el que tiene más manos. Todos aceptan el resultado.' },
+      { icon: 'heart', title: 'La comida de la fiesta', text: 'En casa preguntan a cada persona qué le gusta y eligen algo que guste a la mayoría. También piensan en quien no puede comer algo.' },
+      { icon: 'vote', title: 'Jefa o jefe de grupo', text: 'Se proponen candidatas y candidatos, se vota en secreto y se cuentan los votos frente a todo el grupo.' },
     ],
     mission: 'Hoy, antes de decidir algo con tu familia o tu grupo, pregunta la opinión de una persona más.',
     quiz: [
@@ -40,7 +40,7 @@ export const lessons = [
     ],
   },
   {
-    id: 2, emoji: '🗣️', title: 'Todas las voces cuentan', tagline: 'Tú también puedes opinar',
+    id: 2, icon: 'speech', title: 'Todas las voces cuentan', tagline: 'Tú también puedes opinar',
     explain: [
       { who: 'guide', text: 'En un grupo hay personas muy distintas: unas hablan fuerte, otras son tímidas y otras se comunican de otras formas.' },
       { who: 'friend', text: 'Por eso en la democracia importa que todas las voces cuenten, ¡también las de niñas y niños! Tienen derecho a opinar sobre lo que les afecta.' },
@@ -48,9 +48,9 @@ export const lessons = [
     ],
     keyIdea: 'Todas las personas tienen derecho a opinar y a ser escuchadas, sin discriminación.',
     cases: [
-      { icon: '🪑', title: 'Mejorar el patio', text: 'La maestra pide que cada quien escriba una idea en un papelito, para que también opinen quienes son tímidos.' },
-      { icon: '🌎', title: 'Otra lengua, la misma voz', text: 'Una compañera habla una lengua indígena. El grupo la invita a explicar su idea y alguien ayuda a traducir.' },
-      { icon: '📋', title: 'Consulta infantil y juvenil', text: 'El INE ha organizado consultas en las que niñas, niños y adolescentes expresan su opinión sobre temas que les importan.' },
+      { icon: 'users', title: 'Mejorar el patio', text: 'La maestra pide que cada quien escriba una idea en un papelito, para que también opinen quienes son tímidos.' },
+      { icon: 'speech', title: 'Otra lengua, la misma voz', text: 'Una compañera habla una lengua indígena. El grupo la invita a explicar su idea y alguien ayuda a traducir.' },
+      { icon: 'doc', title: 'Consulta infantil y juvenil', text: 'El INE ha organizado consultas en las que niñas, niños y adolescentes expresan su opinión sobre temas que les importan.' },
     ],
     mission: 'Hoy invita a opinar a alguien que casi no habla en el grupo, y escucha sin interrumpir.',
     quiz: [
@@ -60,7 +60,7 @@ export const lessons = [
     ],
   },
   {
-    id: 3, emoji: '🗳️', title: '¡Vamos a votar!', tagline: 'Un voto libre y secreto',
+    id: 3, icon: 'vote', title: '¡Vamos a votar!', tagline: 'Un voto libre y secreto',
     explain: [
       { who: 'guide', text: 'Una forma muy importante de participar es votar. Con el voto, la ciudadanía elige a quienes tomarán decisiones, como la presidencia o las diputaciones.' },
       { who: 'friend', text: 'En México pueden votar las personas de 18 años o más que tienen su credencial para votar.' },
@@ -69,9 +69,9 @@ export const lessons = [
     ],
     keyIdea: 'El voto es libre, secreto y personal. Cada persona tiene un solo voto.',
     cases: [
-      { icon: '🏫', title: 'Elección en el salón', text: 'Cada quien dobla su papelito y lo mete a una caja. Nadie ve por quién votó cada persona.' },
-      { icon: '👨‍👩‍👧', title: 'Día de elecciones', text: 'Una persona adulta lleva su credencial a la casilla y marca su boleta en un lugar privado.' },
-      { icon: '🙅', title: 'Presionar no vale', text: 'Alguien dice: «Vota por mi candidato o no te hablo». Eso no es un voto libre, porque hay presión.' },
+      { icon: 'school', title: 'Elección en el salón', text: 'Cada quien dobla su papelito y lo mete a una caja. Nadie ve por quién votó cada persona.' },
+      { icon: 'users', title: 'Día de elecciones', text: 'Una persona adulta lleva su credencial a la casilla y marca su boleta en un lugar privado.' },
+      { icon: 'x', title: 'Presionar no vale', text: 'Alguien dice: «Vota por mi candidato o no te hablo». Eso no es un voto libre, porque hay presión.' },
     ],
     mission: 'Pregunta a una persona adulta cómo es ir a votar. Pero no preguntes por quién votó: ¡eso es secreto!',
     quiz: [
@@ -81,7 +81,7 @@ export const lessons = [
     ],
   },
   {
-    id: 4, emoji: '🏛️', title: '¿Quién cuida las elecciones?', tagline: 'El INE y las casillas',
+    id: 4, icon: 'landmark', title: '¿Quién cuida las elecciones?', tagline: 'El INE y las casillas',
     explain: [
       { who: 'guide', text: 'Para que una elección sea justa, alguien debe organizarla y cuidarla. En México, una de esas instituciones es el INE, el Instituto Nacional Electoral.' },
       { who: 'friend', text: 'Cuando hay elecciones se instalan casillas: son los lugares donde la gente vota, como escuelas o parques.' },
@@ -90,9 +90,9 @@ export const lessons = [
     ],
     keyIdea: 'Las elecciones se organizan con reglas claras, y la ciudadanía ayuda a que sean justas.',
     cases: [
-      { icon: '📦', title: 'Contar con testigos', text: 'En tu salón, dos compañeras cuentan los votos en voz alta frente al grupo. Todos pueden verificar.' },
-      { icon: '🏫', title: 'Tu escuela, una casilla', text: 'Muchas casillas se instalan en escuelas. Ese día se prepara el lugar para que todas las personas puedan votar con tranquilidad.' },
-      { icon: '👀', title: 'Mirar con atención', text: 'Las personas observadoras ciudadanas pueden mirar cómo se desarrolla la jornada para que todo se haga con transparencia.' },
+      { icon: 'vote', title: 'Contar con testigos', text: 'En tu salón, dos compañeras cuentan los votos en voz alta frente al grupo. Todos pueden verificar.' },
+      { icon: 'school', title: 'Tu escuela, una casilla', text: 'Muchas casillas se instalan en escuelas. Ese día se prepara el lugar para que todas las personas puedan votar con tranquilidad.' },
+      { icon: 'search', title: 'Mirar con atención', text: 'Las personas observadoras ciudadanas pueden mirar cómo se desarrolla la jornada para que todo se haga con transparencia.' },
     ],
     mission: 'Pregunta en casa si alguien ha sido funcionaria o funcionario de casilla y qué hizo.',
     quiz: [
@@ -102,7 +102,7 @@ export const lessons = [
     ],
   },
   {
-    id: 5, emoji: '🤝', title: 'Participar es más que votar', tagline: 'Pequeñas acciones, grandes cambios',
+    id: 5, icon: 'users', title: 'Participar es más que votar', tagline: 'Pequeñas acciones, grandes cambios',
     explain: [
       { who: 'guide', text: 'Votar es una forma de participar, pero hay muchas más. Participar es involucrarte para que tu comunidad esté mejor.' },
       { who: 'friend', text: 'Puedes opinar en una consulta, formar parte de un comité en tu escuela, cuidar un parque, ayudar a tus vecinas y vecinos, o informarte bien.' },
@@ -110,9 +110,9 @@ export const lessons = [
     ],
     keyIdea: 'Participar es involucrarte y cuidar lo que compartimos, no solo en las elecciones.',
     cases: [
-      { icon: '🌳', title: 'Cuidar el parque', text: 'Familias de la colonia se organizan para limpiar y plantar árboles en el parque donde juegan.' },
-      { icon: '📝', title: 'Una idea para la escuela', text: 'Una niña propone en la reunión del grupo poner un buzón de ideas. Todos votan y se pone en marcha.' },
-      { icon: '🍎', title: 'Ayudar a otros', text: 'El grupo organiza una colecta de útiles escolares para compañeras y compañeros que los necesitan.' },
+      { icon: 'tree', title: 'Cuidar el parque', text: 'Familias de la colonia se organizan para limpiar y plantar árboles en el parque donde juegan.' },
+      { icon: 'doc', title: 'Una idea para la escuela', text: 'Una niña propone en la reunión del grupo poner un buzón de ideas. Todos votan y se pone en marcha.' },
+      { icon: 'heart', title: 'Ayudar a otros', text: 'El grupo organiza una colecta de útiles escolares para compañeras y compañeros que los necesitan.' },
     ],
     mission: 'Elige UNA acción pequeña esta semana: proponer una idea, ayudar a alguien o cuidar un lugar.',
     quiz: [
@@ -122,7 +122,7 @@ export const lessons = [
     ],
   },
   {
-    id: 6, emoji: '📊', title: 'Los números cuentan historias', tagline: '¿Qué es la participación?',
+    id: 6, icon: 'chart', title: 'Los números cuentan historias', tagline: '¿Qué es la participación?',
     explain: [
       { who: 'guide', text: 'Los datos son números que nos ayudan a entender lo que pasa. Por ejemplo: ¿cuántas personas votaron?' },
       { who: 'friend', text: 'A eso se le llama participación: de todas las personas que podían votar, ¿cuántas votaron de verdad? Se dice en porcentaje.' },
@@ -132,9 +132,9 @@ export const lessons = [
     ],
     keyIdea: 'Participación es cuántas personas, de las que podían votar, sí votaron. Un dato bien explicado cuenta una historia.',
     cases: [
-      { icon: '🏫', title: 'Votación del salón', text: 'De 30 compañeras y compañeros, votaron 24. Son 8 de cada 10, o sea, 80 de cada 100: ¡una participación de 80 %!' },
-      { icon: '⚽', title: 'Nombre del equipo', text: 'Votaron 20 de 30 niñas y niños. Son 2 de cada 3. Si faltan 10 votos, vale la pena preguntar por qué.' },
-      { icon: '📰', title: 'Un número en las noticias', text: 'Cuando oigas un porcentaje, pregunta: ¿de cuántas personas?, ¿de qué año? y ¿quién lo midió?' },
+      { icon: 'school', title: 'Votación del salón', text: 'De 30 compañeras y compañeros, votaron 24. Son 8 de cada 10, o sea, 80 de cada 100: ¡una participación de 80 %!' },
+      { icon: 'star', title: 'Nombre del equipo', text: 'Votaron 20 de 30 niñas y niños. Son 2 de cada 3. Si faltan 10 votos, vale la pena preguntar por qué.' },
+      { icon: 'doc', title: 'Un número en las noticias', text: 'Cuando oigas un porcentaje, pregunta: ¿de cuántas personas?, ¿de qué año? y ¿quién lo midió?' },
     ],
     mission: 'Haz una mini encuesta con 5 personas y dibuja el resultado con cuadritos de colores.',
     quiz: [
@@ -144,7 +144,7 @@ export const lessons = [
     ],
   },
   {
-    id: 7, emoji: '🗺️', title: 'Cada lugar es distinto', tagline: 'Comparar con cuidado',
+    id: 7, icon: 'map', title: 'Cada lugar es distinto', tagline: 'Comparar con cuidado',
     explain: [
       { who: 'guide', text: 'México tiene 32 entidades y miles de comunidades. La participación puede cambiar de un lugar a otro, de un grupo a otro y de un año a otro.' },
       { who: 'friend', text: 'Por eso los datos se comparan: entre lugares, entre mujeres y hombres, entre edades y entre años. Así vemos dónde hace falta más información o apoyo.' },
@@ -154,9 +154,9 @@ export const lessons = [
     ],
     keyIdea: 'Comparar nos ayuda a ver dónde hace falta apoyo. Hay que comparar cosas parecidas y no juzgar a las personas.',
     cases: [
-      { icon: '🏘️', title: 'Dos colonias (datos de juguete)', text: 'En Sol votaron 7 de cada 10 y en Luna 4 de cada 10. Una buena pregunta es: ¿qué ayudaría a Luna? ¿Más información, casillas más cerca?' },
-      { icon: '🧑‍🤝‍🧑', title: 'Distintos grupos', text: 'Si pocas personas jóvenes participan, se pueden preparar mensajes y actividades pensados para ellas.' },
-      { icon: '🔎', title: 'Peras con manzanas', text: 'No es lo mismo una elección presidencial que una intermedia. Antes de comparar, hay que fijarse en qué se está midiendo.' },
+      { icon: 'home', title: 'Dos colonias (datos de juguete)', text: 'En Sol votaron 7 de cada 10 y en Luna 4 de cada 10. Una buena pregunta es: ¿qué ayudaría a Luna? ¿Más información, casillas más cerca?' },
+      { icon: 'users', title: 'Distintos grupos', text: 'Si pocas personas jóvenes participan, se pueden preparar mensajes y actividades pensados para ellas.' },
+      { icon: 'search', title: 'Peras con manzanas', text: 'No es lo mismo una elección presidencial que una intermedia. Antes de comparar, hay que fijarse en qué se está midiendo.' },
     ],
     mission: 'Pregunta a tu familia: ¿qué ayudaría a que más personas de tu comunidad participen?',
     quiz: [
@@ -166,7 +166,7 @@ export const lessons = [
     ],
   },
   {
-    id: 8, emoji: '📣', title: 'Misión: ¡datos con voz!', tagline: 'Cuenta la historia con verdad',
+    id: 8, icon: 'megaphone', title: 'Misión: ¡datos con voz!', tagline: 'Cuenta la historia con verdad',
     explain: [
       { who: 'guide', text: '¡Ya sabes muchísimo! Ahora puedes ser mensajera o mensajero de la participación: contarle a más personas, con datos claros y verdaderos.' },
       { who: 'friend', text: 'Un buen mensaje es claro (fácil de entender), veraz (verdadero y con fuente) y amable (invita, no regaña).' },
@@ -175,9 +175,9 @@ export const lessons = [
     ],
     keyIdea: 'Comunica con datos claros, verdaderos y con fuente. Invita a participar con respeto.',
     cases: [
-      { icon: '📱', title: 'Un mensaje en el chat', text: 'Alguien manda «¡El 90 % ya no quiere votar!» sin decir de dónde sale. Tú pides la fuente antes de compartirlo.' },
-      { icon: '🖼️', title: 'Un cartel para la escuela', text: 'Tu equipo dibuja 10 personitas, pinta 6 y escribe: «6 de cada 10 participaron. ¿Y tú? Pregunta, infórmate, participa».' },
-      { icon: '🎙️', title: 'Radio escolar', text: 'En 1 minuto cuentas una historia corta: qué es votar, por qué importa y una acción que todos pueden hacer.' },
+      { icon: 'phone', title: 'Un mensaje en el chat', text: 'Alguien manda «¡El 90 % ya no quiere votar!» sin decir de dónde sale. Tú pides la fuente antes de compartirlo.' },
+      { icon: 'image', title: 'Un cartel para la escuela', text: 'Tu equipo dibuja 10 personitas, pinta 6 y escribe: «6 de cada 10 participaron. ¿Y tú? Pregunta, infórmate, participa».' },
+      { icon: 'mic', title: 'Radio escolar', text: 'En 1 minuto cuentas una historia corta: qué es votar, por qué importa y una acción que todos pueden hacer.' },
     ],
     mission: 'Comparte con una persona de tu familia UNA cosa que aprendiste, y dile de dónde viene el dato.',
     quiz: [

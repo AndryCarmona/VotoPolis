@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useRef, useState } from 'react';
+import Icon from '../Icon';
 import Character from '../Character';
 import { THEMES, scenarios } from './duelData';
 import { buildGame, cleanName, emptyView, isValidCode, makeRoomCode, normalizeCode, reduceView, SECONDS } from './duelEngine';
@@ -108,11 +109,11 @@ export default function Duel({ guide, onExit, onLessons }) {
 
     {step === 'menu' && <section aria-labelledby="duel-h">
       <div className="eyebrow left">JUEGA CON UNA AMIGA, UN AMIGO O UN FAMILIAR</div>
-      <h1 id="duel-h" ref={headingRef} tabIndex="-1" className="lesson-h">Duelo Democrático <span aria-hidden="true">⚔️🗳️</span></h1>
+      <h1 id="duel-h" ref={headingRef} tabIndex="-1" className="lesson-h">Duelo Democrático <Icon name="bolt" size={32} className="h-icon"/></h1>
       <p className="lead">Dos personas, una sala y 8 escenarios de la vida diaria. Tienen {SECONDS} segundos para leer y elegir la respuesta. ¡Quien acierte más será la persona más democrática!</p>
       <div className="duel-choices">
-        <button className="duel-card" onClick={() => setStep('host')}><span aria-hidden="true">🏠</span><b>Crear una sala</b><small>Te damos un código para compartir</small></button>
-        <button className="duel-card" onClick={() => setStep('join')}><span aria-hidden="true">🔑</span><b>Entrar con un código</b><small>Escribe el código que te compartieron</small></button>
+        <button className="duel-card" onClick={() => setStep('host')}><Icon name="home" size={32}/><b>Crear una sala</b><small>Te damos un código para compartir</small></button>
+        <button className="duel-card" onClick={() => setStep('join')}><Icon name="key" size={32}/><b>Entrar con un código</b><small>Escribe el código que te compartieron</small></button>
       </div>
       <p className="quiz-note">Para jugar entre dos dispositivos se necesita internet. No uses tu nombre completo ni datos personales: basta con un apodo.</p>
       <p className="quiz-note"><button className="linklike" onClick={onLessons}>¿Primero quieres practicar? Ve a las lecciones</button></p>
@@ -122,7 +123,7 @@ export default function Duel({ guide, onExit, onLessons }) {
       <h1 id="duel-h" ref={headingRef} tabIndex="-1" className="lesson-h">Crea tu sala</h1>
       <label className="field">Tu apodo<input value={name} onChange={e => setName(e.target.value)} maxLength={16} placeholder="Por ejemplo: Alex" autoComplete="off" required/></label>
       <fieldset className="themes"><legend>¿Sobre qué quieren jugar?</legend>
-        {THEMES.map(t => <label key={t.key} className={`option ${theme === t.key ? 'chosen' : ''}`}><input type="radio" name="theme" checked={theme === t.key} onChange={() => setTheme(t.key)}/><span className="letter" aria-hidden="true">{t.emoji}</span><span>{t.label}</span></label>)}
+        {THEMES.map(t => <label key={t.key} className={`option ${theme === t.key ? 'chosen' : ''}`}><input type="radio" name="theme" checked={theme === t.key} onChange={() => setTheme(t.key)}/><span className="letter" aria-hidden="true"><Icon name={t.icon} size={18}/></span><span>{t.label}</span></label>)}
       </fieldset>
       <button className="primary wide" type="submit">Crear sala <span aria-hidden="true">↗</span></button>
     </form>}
@@ -137,7 +138,7 @@ export default function Duel({ guide, onExit, onLessons }) {
     </form>}
 
     {step === 'error' && <section aria-labelledby="duel-h">
-      <h1 id="duel-h" ref={headingRef} tabIndex="-1" className="lesson-h">No pudimos entrar 😕</h1>
+      <h1 id="duel-h" ref={headingRef} tabIndex="-1" className="lesson-h">No pudimos entrar</h1>
       <p className="alert" role="alert">{notice}</p>
       <button className="primary wide" onClick={() => reset('join')}>Intentar de nuevo</button>
     </section>}
@@ -147,7 +148,7 @@ export default function Duel({ guide, onExit, onLessons }) {
         <h1 id="duel-h" ref={headingRef} tabIndex="-1" className="lesson-h">Sala lista</h1>
         <p className="lead">Comparte este código con la persona que va a jugar contigo:</p>
         <div className="room-code" aria-label={`Código de sala: ${code.split('').join(' ')}`}>{code}</div>
-        <div className="row-actions"><button className="back" onClick={copyCode}>{copied ? '¡Copiado! ✓' : '📋 Copiar código'}</button><button className="back" onClick={shareCode}>📤 Compartir</button></div>
+        <div className="row-actions"><button className="back" onClick={copyCode}>{copied ? '¡Copiado!' : <><Icon name="copy" size={18}/> Copiar código</>}</button><button className="back" onClick={shareCode}><Icon name="share" size={18}/> Compartir</button></div>
         {peerOk === false && <p className="alert" role="status">No pudimos abrir la conexión por internet. La sala solo funcionará entre pestañas de este mismo navegador.</p>}
         {peerOk === 'taken' && <p className="alert" role="status">Ese código ya estaba en uso. Pulsa «Cambiar de sala» y crea otra.</p>}
         <ul className="players" aria-live="polite">
@@ -188,7 +189,7 @@ export default function Duel({ guide, onExit, onLessons }) {
         </fieldset>
         {state.phase === 'question' && <p className="quiz-note" role="status">{state.picked !== null ? '¡Respuesta enviada! Esperando a la otra persona o a que termine el tiempo…' : `Elige una respuesta antes de que se acabe el tiempo.`}</p>}
         {state.phase === 'reveal' && <div className="reveal" role="status">
-          <p><b>{state.picked === null ? '⏰ Se acabó el tiempo. ' : state.picked === state.reveal.correct ? '🎉 ¡Correcto! ' : '💡 Casi. '}</b>{state.reveal.why}</p>
+          <p><b>{state.picked === null ? 'Se acabó el tiempo. ' : state.picked === state.reveal.correct ? '¡Correcto! ' : 'Casi. '}</b>{state.reveal.why}</p>
           <p className="other-pick">{names[other]} {state.reveal.picks[other] === null ? 'no alcanzó a responder.' : state.reveal.picks[other] === state.reveal.correct ? 'acertó ✓' : 'falló esta vez.'}</p>
           <p className="quiz-note">La siguiente pregunta llega en unos segundos…</p>
         </div>}
@@ -200,12 +201,12 @@ export default function Duel({ guide, onExit, onLessons }) {
           <div><h1 id="duel-q" ref={headingRef} tabIndex="-1" className="lesson-h">{state.result.title}</h1><p className="lead">{state.result.subtitle}</p></div>
         </div>
         <ul className="final-scores">
-          {['host', 'guest'].map(r => <li key={r} className={state.result.winner === r ? 'winner' : ''}><span>{state.result.winner === r ? '🏆 ' : ''}<b>{state.names[r]}</b></span><span>{state.scores[r]} de {state.total}</span></li>)}
+          {['host', 'guest'].map(r => <li key={r} className={state.result.winner === r ? 'winner' : ''}><span>{state.result.winner === r && <Icon name="trophy" size={18} className="ic-gold"/>} <b>{state.names[r]}</b></span><span>{state.scores[r]} de {state.total}</span></li>)}
         </ul>
         <details className="review"><summary>Repasar las respuestas correctas</summary>
           <ol>{state.review.map((r, i) => <li key={i}><b>{r.question}</b><br/>✓ {r.correctText}<br/><span>{r.why}</span></li>)}</ol>
         </details>
-        <div className="mission"><b>🎯 Tu misión</b><p>Cuéntale a alguien de tu familia una cosa que aprendiste en el duelo.</p></div>
+        <div className="mission"><b><Icon name="target" size={16}/> Tu misión</b><p>Cuéntale a alguien de tu familia una cosa que aprendiste en el duelo.</p></div>
         <div className="row-actions wrap"><button className="back" onClick={() => reset('menu')}>Jugar otra vez</button><button className="primary" onClick={() => { reset(); onLessons(); }}>Ir a las lecciones <span aria-hidden="true">↗</span></button></div>
       </div>}
     </section>}

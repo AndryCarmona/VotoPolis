@@ -42,8 +42,8 @@ export function Compare() {
   return <figure className="visual compare">
     <figcaption>Datos de juguete (inventados para practicar)</figcaption>
     <div className="compare-grid">
-      <div><h4>Colonia Sol ☀️</h4><People filled={7}/><p><b>7 de cada 10</b> votaron</p></div>
-      <div><h4>Colonia Luna 🌙</h4><People filled={4}/><p><b>4 de cada 10</b> votaron</p></div>
+      <div><h4>Colonia Sol</h4><People filled={7}/><p><b>7 de cada 10</b> votaron</p></div>
+      <div><h4>Colonia Luna</h4><People filled={4}/><p><b>4 de cada 10</b> votaron</p></div>
     </div>
   </figure>;
 }

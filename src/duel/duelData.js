@@ -2,9 +2,9 @@
 // Las opciones se mezclan en cada partida; answer es el índice de la correcta en este orden.
 
 export const THEMES = [
-  { key: 'democracia', label: 'Elecciones y democracia', emoji: '🗳️', topics: [1, 2, 3, 4] },
-  { key: 'participacion', label: 'Participación y datos', emoji: '📊', topics: [5, 6, 7, 8] },
-  { key: 'mezcla', label: 'Mezcla de todo', emoji: '🎲', topics: [1, 2, 3, 4, 5, 6, 7, 8] },
+  { key: 'democracia', label: 'Elecciones y democracia', icon: 'vote', topics: [1, 2, 3, 4] },
+  { key: 'participacion', label: 'Participación y datos', icon: 'chart', topics: [5, 6, 7, 8] },
+  { key: 'mezcla', label: 'Mezcla de todo', icon: 'dice', topics: [1, 2, 3, 4, 5, 6, 7, 8] },
 ];
 
 export const scenarios = [
